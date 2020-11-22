@@ -2,6 +2,14 @@
 
 Calendar API. All the temporary things belong here (events, cycles, etc.)
 
+## Configuring
+The service needs a dotenv file to run. This dotenv file will be loaded in the environment variables. Here’s what the app needs:
+
+Environement key | Summary | Required by
+--- | --- | ---
+ADMINS | Comma-separated user IDs that are allowed to push new things in the app | App
+AUTH_URL | Auth net service URL | @thefirstspine/auth-nest
+
 ## Installation
 
 ```bash
