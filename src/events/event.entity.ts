@@ -7,12 +7,20 @@ export class Event {
   id: number;
 
   @Column()
-  title: string;
+  title_en: string;
+
+  @Column()
+  title_fr: string;
 
   @Column({
     type: 'text',
   })
-  text: string;
+  text_en: string;
+
+  @Column({
+    type: 'text',
+  })
+  text_fr: string;
 
   @Column({
     enum: [
