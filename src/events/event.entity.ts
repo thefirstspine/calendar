@@ -43,9 +43,6 @@ export class Event {
   @Column()
   datetimeTo: Date;
 
-  @Column()
-  language: string;
-
   @CreateDateColumn()
   createdAt: Date;
 
