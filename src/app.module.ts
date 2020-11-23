@@ -7,6 +7,8 @@ import { EventsController } from './events/events.controller';
 import { EventsService } from './events/events.service';
 import { EventsModule } from './events/events.module';
 import { Event } from './events/event.entity';
+import { Cycle } from './cycles/cycle.entity';
+import { CyclesModule } from './cycles/cycles.module';
 
 @Module({
   controllers: [IndexController, EventsController],
@@ -18,7 +20,8 @@ export class AppModule {
       module: AppModule,
       imports: [
         EventsModule,
-        TypeOrmModule.forFeature([Event]),
+        CyclesModule,
+        TypeOrmModule.forFeature([Event, Cycle]),
         TypeOrmModule.forRoot({
           type: 'postgres',
           synchronize: true,
