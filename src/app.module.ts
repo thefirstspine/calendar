@@ -9,6 +9,9 @@ import { EventsModule } from './events/events.module';
 import { Event } from './events/event.entity';
 import { Cycle } from './cycles/cycle.entity';
 import { CyclesModule } from './cycles/cycles.module';
+import { ScheduledLoot } from './scheduled-loots/scheduled-loot.entity';
+import { ScheduledLootsModule } from './scheduled-loots/scheduled-loot.module';
+import { ScheduledLootUser } from './scheduled-loots/scheduled-loot-user.entity';
 
 @Module({
   controllers: [IndexController, EventsController],
@@ -21,7 +24,8 @@ export class AppModule {
       imports: [
         EventsModule,
         CyclesModule,
-        TypeOrmModule.forFeature([Event, Cycle]),
+        ScheduledLootsModule,
+        TypeOrmModule.forFeature([Event, Cycle, ScheduledLoot, ScheduledLootUser]),
         TypeOrmModule.forRoot({
           type: 'postgres',
           synchronize: true,
