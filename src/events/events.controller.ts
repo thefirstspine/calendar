@@ -1,17 +1,19 @@
-import { Controller, UseGuards } from "@nestjs/common";
-import { Crud, CrudController } from "@nestjsx/crud";
-import { AdminGuard } from "../admin.guard";
+import { Controller, Get, UseGuards } from "@nestjs/common";
 
 import { Event } from "./event.entity";
 import { EventsService } from "./events.service";
 
-@Crud({
-  model: {
-    type: Event,
-  },
-})
 @Controller("events")
-@UseGuards(AdminGuard)
-export class EventsController implements CrudController<Event> {
+export class EventsController {
   constructor(public service: EventsService) {}
+
+  @Get()
+  index(): Promise<Event[]> {
+    return this.service.getAll();
+  }
+
+  @Get('/next')
+  next(): Promise<Event[]> {
+    return this.service.getNext();
+  }
 }

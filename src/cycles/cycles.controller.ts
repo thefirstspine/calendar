@@ -1,19 +1,15 @@
-import { Controller, Get, UseGuards } from "@nestjs/common";
-import { Crud, CrudController } from "@nestjsx/crud";
-import { AdminGuard } from "../admin.guard";
-
-import { Cycle } from "./cycle.entity";
+import { Controller, Get } from "@nestjs/common";
 import { CyclesService } from "./cycles.service";
 
-@Crud({
-  model: {
-    type: Cycle,
-  },
-})
+
 @Controller("cycles")
-@UseGuards(AdminGuard)
-export class CyclesController implements CrudController<Cycle> {
+export class CyclesController {
   constructor(public service: CyclesService) {}
+
+  @Get()
+  async index() {
+    return this.service.getAll();
+  }
 
   @Get('current')
   async current() {
