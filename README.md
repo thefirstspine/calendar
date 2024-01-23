@@ -1,4 +1,4 @@
-## Calendar
+# Calendar
 
 Calendar API. All the temporary things belong here (events, cycles, etc.)
 
