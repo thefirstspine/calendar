@@ -1,6 +1,6 @@
-FROM node:10
+FROM node:20
 
-WORKDIR /arena
+WORKDIR /calendar
 
 COPY . .
 
