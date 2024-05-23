@@ -1,6 +1,4 @@
-import { Controller, Get, UseGuards } from '@nestjs/common';
-import { AuthGuard } from '@thefirstspine/auth-nest';
-import { AdminGuard } from 'src/admin.guard';
+import { Controller, Get } from '@nestjs/common';
 
 /**
  * Main controller to avoir 404 on home & report status.
@@ -22,15 +20,6 @@ export class IndexController {
    */
   @Get('/status')
   status() {
-    return {status: 'ok'};
-  }
-
-  /**
-   * Simply returns 'ok' for status checking =)
-   */
-  @Get('/protected')
-  @UseGuards(AuthGuard, AdminGuard)
-  protected() {
     return {status: 'ok'};
   }
 }
