@@ -22,19 +22,7 @@ export class Event {
   })
   text_fr: string;
 
-  @Column({
-    enum: [
-      'target:933',
-      'target:934',
-      'target:935',
-      'target:1141',
-      'corsairs',
-      'tournament',
-      'tricks-celebration',
-      'scheduled-loot',
-      'triple-shards',
-    ]
-  })
+  @Column()
   type: string;
 
   @Column()
