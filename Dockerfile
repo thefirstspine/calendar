@@ -1,10 +1,10 @@
-FROM node:20
+FROM node:10
 
-WORKDIR /calendar
+WORKDIR /arena
 
 COPY . .
 
-RUN npm ci 
+RUN npm i 
 RUN npm run build
 
 CMD ["node", "dist/main.js"]

@@ -1,4 +1,5 @@
 import { Injectable, CanActivate, ExecutionContext } from "@nestjs/common";
+import { getFeature, getAction } from "@nestjsx/crud";
 import { AuthService } from "@thefirstspine/auth";
 
 @Injectable()
@@ -8,6 +9,12 @@ export class AdminGuard implements CanActivate {
 
   async canActivate(context: ExecutionContext): Promise<boolean> {
     const handler = context.getHandler();
+    const action = getAction(handler);
+
+    if (!['Create-One', 'Create-Many', 'Update-One', 'Replace-One', 'Delete-One'].includes(action)) {
+      // Not filtered actions
+      return true;
+    }
 
     // Check the bearer JSON token
     if (
